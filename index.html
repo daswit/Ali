@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conexión de Parejas</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add Firebase SDKs -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+        import { getDatabase, ref, onValue, push, remove } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-database.js";
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDvR0Pt7JGNF4vwfL5-Ct7mrJ9_nmSecrU",
+            authDomain: "alii-9e98c.firebaseapp.com",
+            projectId: "alii-9e98c",
+            storageBucket: "alii-9e98c.appspot.com",
+            messagingSenderId: "778393545229",
+            appId: "1:778393545229:web:28ec268faac59656008344",
+            measurementId: "G-T7LNCR6WQD"
+        };
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#actividades">Actividades</a></li>
+                <li><a href="#recuerdos">Recuerdos</a></li>
+                <li><a href="#metas">Metas</a></li>
+                <li><a href="#mensajes">Mensajes</a></li>
+                <li><a href="#fotos">Fotos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="actividades">
+            <h2>Actividades para Hacer Juntos</h2>
+            <ul id="activity-list"></ul>
+            <input type="text" id="new-activity" placeholder="Añadir nueva actividad...">
+            <button onclick="addActivity()">Añadir</button>
+        </section>
+        <section id="recuerdos">
+            <h2>Recuerdos</h2>
+            <input type="file" id="photo-upload" accept="image/*">
+            <button onclick="uploadPhoto()">Subir Foto</button>
+            <div class="carousel">
+                <div class="carousel-inner" id="carousel-inner"></div>
+            </div>
+        </section>
+        <!-- Más secciones aquí -->
+    </main>
+    <script src="scripts.js" type="module"></script>
+</body>
+
+</html>
